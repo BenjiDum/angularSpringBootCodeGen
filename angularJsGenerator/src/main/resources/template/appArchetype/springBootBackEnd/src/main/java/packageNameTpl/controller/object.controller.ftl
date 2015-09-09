@@ -17,7 +17,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
 import ${packageName}.dao.${objectNameUpper}DAO;
-import ${packageName}.domain.${objectNameUpper};
+import ${packageCommonsName}.${objectNameUpper};
 
 
 

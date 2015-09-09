@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 import com.agaetis.spring.jdbc.lightorm.repository.LightOrmCrudRepository;
-import ${packageName}.domain.${objectNameUpper};
+import ${packageCommonsName}.${objectNameUpper};
 
 @Repository
 public class ${objectNameUpper}DAO extends LightOrmCrudRepository<${objectNameUpper}>  {

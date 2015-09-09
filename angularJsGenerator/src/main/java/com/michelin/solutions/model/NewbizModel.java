@@ -56,6 +56,100 @@ public class NewbizModel {
 
     }
 
+
+    public static Map<String, Object> generateMapForSupplier(){
+        Map<String, Object> objectDescriptor = new HashMap<String, Object>();
+
+        List<String> elet = new ArrayList<String>();
+        elet.add("id");
+        elet.add("serviceProviderName");
+
+        String objectName = "serviceProvider";
+        String objectNameUpper = "ServiceProvider";
+        String packageName = "com.michelin.solutions.newbiz";
+        String objectNameTable = "service_provider";
+        String springDataRestBaseUri = "${spring.data.rest.base-uri}";
+        String moduleBaseUrlParamName = "CServerUrl";
+
+        objectDescriptor.put("moduleBaseUrlParamName", moduleBaseUrlParamName);
+        objectDescriptor.put("springDataRestBaseUri", springDataRestBaseUri);
+        objectDescriptor.put("objectName", objectName);
+        objectDescriptor.put("objectNameUpper", objectNameUpper);
+        objectDescriptor.put("objectNameFullUpper", objectNameUpper.toUpperCase());
+        objectDescriptor.put("listElement", elet);
+        objectDescriptor.put("objectNameTable", objectNameTable);
+
+        List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
+
+        /* Don't put the id item in the database column List*/
+        databaseElements.add(new JavaDatabaseObjectDescriptor("service_provider_name", "String", "serviceProviderName", "ServiceProviderName"));
+
+
+        objectDescriptor.put("packageName", packageName);
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
+        objectDescriptor.put("packageCommonsName", packageCommonsName);
+        objectDescriptor.put("listDatabaseElt", databaseElements);
+
+
+        return objectDescriptor;
+
+    }
+
+    public static Map<String, Object> generateMapForStock(){
+        Map<String, Object> objectDescriptor = new HashMap<String, Object>();
+
+        //id	articleId	Qty	SupplierId
+
+
+        List<String> elet = new ArrayList<String>();
+        elet.add("id");
+        elet.add("relatedArticleId");
+        elet.add("relatedServiceProvId");
+        elet.add("qty");
+
+
+        String objectName = "stock";
+        String objectNameUpper = "Stock";
+        String packageName = "com.michelin.solutions.newbiz";
+        String objectNameTable = "stock";
+        String springDataRestBaseUri = "${spring.data.rest.base-uri}";
+        String moduleBaseUrlParamName = "CServerUrl";
+
+        objectDescriptor.put("moduleBaseUrlParamName", moduleBaseUrlParamName);
+        objectDescriptor.put("springDataRestBaseUri", springDataRestBaseUri);
+        objectDescriptor.put("objectName", objectName);
+        objectDescriptor.put("objectNameUpper", objectNameUpper);
+        objectDescriptor.put("objectNameFullUpper", objectNameUpper.toUpperCase());
+        objectDescriptor.put("listElement", elet);
+        objectDescriptor.put("objectNameTable", objectNameTable);
+
+        List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
+
+        /* Don't put the id item in the database column List*/
+        databaseElements.add(new JavaDatabaseObjectDescriptor("related_article_id", "Integer", "relatedArticleId", "RelatedArticleId"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("related_service_prov_id", "Integer", "relatedServiceProvId", "RelatedServiceProvId"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("qty", "Integer", "qty", "Qty"));
+
+
+        objectDescriptor.put("packageName", packageName);
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
+        objectDescriptor.put("packageCommonsName", packageCommonsName);
+        objectDescriptor.put("listDatabaseElt", databaseElements);
+
+
+        return objectDescriptor;
+    }
+
+
+
+
+
+
+
+
+
+
+
     public static Map<String, Object> generateMapForHubTable(){
         Map<String, Object> objectDescriptor = new HashMap<String, Object>();
 

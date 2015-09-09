@@ -107,6 +107,8 @@ public class AppGeneratorCore {
 		List<Map<String, Object>> result = new ArrayList<Map<String,Object>>();
 
         result.add(NewbizModel.generateMapForArticle());
+        result.add(NewbizModel.generateMapForStock());
+        result.add(NewbizModel.generateMapForSupplier());
 
 		/*result.add(generateMapTestForRefValueConsumptionVehicle());
 		result.add(generateMapTestForRefValueConsumptionGroup());
