@@ -56,21 +56,6 @@ public class NewbizModel {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public static Map<String, Object> generateMapForHubTable(){
         Map<String, Object> objectDescriptor = new HashMap<String, Object>();
 
@@ -789,6 +774,45 @@ public class NewbizModel {
 
         return objectDescriptor;
 
+    }
+
+    private static Map<String, Object> generateMapTestForContacts(){
+        Map<String, Object> objectDescriptor = new HashMap<String, Object>();
+
+        List<String> elet = new ArrayList<String>();
+        elet.add("id");
+        elet.add("contactFirstName");
+        elet.add("contactLastName");
+        elet.add("email");
+
+        String objectName = "contact";
+        String objectNameUpper = "Contact";
+        String packageName = "com.michelin.solutions.newbiz";
+        String objectNameTable = "contact";
+        String springDataRestBaseUri = "${spring.data.rest.base-uri}";
+        String moduleBaseUrlParamName = "CServerUrlOffer";
+
+        objectDescriptor.put("moduleBaseUrlParamName", moduleBaseUrlParamName);
+        objectDescriptor.put("springDataRestBaseUri", springDataRestBaseUri);
+        objectDescriptor.put("objectName", objectName);
+        objectDescriptor.put("objectNameUpper", objectNameUpper);
+        objectDescriptor.put("objectNameFullUpper", objectNameUpper.toUpperCase());
+        objectDescriptor.put("listElement", elet);
+        objectDescriptor.put("objectNameTable", objectNameTable);
+
+        List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
+
+        /* Don't put the id item in the database column List*/
+        databaseElements.add(new JavaDatabaseObjectDescriptor("contact_first_name", "String", "contactFirstName", "ContactFirstName"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("contact_last_name", "String", "contactLastName", "ContactLastName"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("email", "String", "email", "Email"));
+
+        objectDescriptor.put("packageName", packageName);
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
+        objectDescriptor.put("packageCommonsName", packageCommonsName);
+        objectDescriptor.put("listDatabaseElt", databaseElements);
+
+        return objectDescriptor;
     }
 
 

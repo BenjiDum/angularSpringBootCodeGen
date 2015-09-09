@@ -1,5 +1,6 @@
 <script type="text/ng-template" id="${objectName}CreateModalContent.html">
 	<div class="modal-header">
+		<div class="button-close"><button class="btn btn-danger" ng-click="cancel()" >X</button></div>
 		<h3 class="modal-title">Create an ${objectName}</h3>
 	</div>
 	<form novalidate class="simple-form">

@@ -16,6 +16,7 @@ ${objectName}Module.controller('${objectName}Ctrl', ['$rootScope','$scope','$htt
 			var modalInstance = $modal.open({
 				templateUrl: '${objectName}EditModalContent.html',
 				controller: '${objectName}ModalEditInstanceCtrl',
+				backdrop: 'static',
 				resolve: {
 					selected${objectNameUpper}: function () {
 						return selected${objectNameUpper};
@@ -32,6 +33,7 @@ ${objectName}Module.controller('${objectName}Ctrl', ['$rootScope','$scope','$htt
 			var modalInstance = $modal.open({
 				templateUrl: '${objectName}CreateModalContent.html',
 				controller: '${objectName}ModalCreateInstanceCtrl',
+				backdrop: 'static',
 				resolve: {
 					created${objectNameUpper}: function () {
 						return created${objectNameUpper};
@@ -64,6 +66,8 @@ angular.module('${objectName}Module').controller('${objectName}ModalCreateInstan
 angular.module('${objectName}Module').controller('${objectName}ModalEditInstanceCtrl', function ($scope, $modalInstance, Notification, selected${objectNameUpper}, ${objectName}Service) {
 
 	$scope.selected${objectNameUpper} = selected${objectNameUpper};
+	$scope.backup = angular.copy($scope.selected${objectNameUpper});
+
 	$scope.edit = function (selected${objectNameUpper}) {
 		$scope.selected${objectNameUpper} = selected${objectNameUpper};
 		${objectName}Service.update${objectNameUpper}($scope.selected${objectNameUpper}, Notification);
@@ -71,6 +75,7 @@ angular.module('${objectName}Module').controller('${objectName}ModalEditInstance
 	};
 
   $scope.cancel = function () {
+	angular.copy($scope.backup, $scope.selected${objectNameUpper});
     $modalInstance.dismiss('cancel');
   };
 });
