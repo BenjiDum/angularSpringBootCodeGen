@@ -24,10 +24,10 @@ ${objectName}Module.factory('${objectName}Service', ['$resource','${moduleBaseUr
             $http.post(${moduleBaseUrlParamName} + api + '/create', ${objectName})
             .then(function(response){
                 deferred.resolve(response.data);
-                Notification.success('${objectName} à été crée dans NewBiz avec succès');
+                Notification.success('${objectName} a Ã©tÃ© crÃ©e dans NewBiz avec succÃ©s');
             },function(response){
                 deferred.reject(response);
-                Notification.error('Une erreur est survenue, ${objectName} n\'a pas été crée');
+                Notification.error('Une erreur est survenue, ${objectName} n\'a pas Ã©tÃ© crÃ©e');
             });
             return deferred.promise;
         },
@@ -35,11 +35,11 @@ ${objectName}Module.factory('${objectName}Service', ['$resource','${moduleBaseUr
             var deferred = $q.defer();
             $http.post(${moduleBaseUrlParamName}+ api + '/update?id='+ ${objectName}.id, ${objectName})
             .then(function(response){
-            	Notification.success('${objectName} à été mis à jour dans NewBiz avec succès');
+            	Notification.success('${objectName} a Ã©tÃ© mis Ã  jour dans NewBiz avec succÃ©s');
                 deferred.resolve(response.data);
             },function(response){
                 deferred.reject(response);
-                Notification.error('Une erreur est survenue, ${objectName} n\'a pas été mis à jour');
+                Notification.error('Une erreur est survenue, ${objectName} n\'a pas Ã©tÃ© mis Ã  jour');
             });
             return deferred.promise;
         },

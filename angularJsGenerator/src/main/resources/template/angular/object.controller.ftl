@@ -54,7 +54,7 @@ angular.module('${objectName}Module').controller('${objectName}ModalCreateInstan
 
 	$scope.edit = function (created${objectNameUpper}) {
 		$scope.created${objectNameUpper} = created${objectNameUpper};
-		${objectName}Service.create${objectNameUpper}($scope.created${objectNameUpper}, $scope, Notification);
+		$scope.created${objectNameUpper} = ${objectName}Service.create${objectNameUpper}($scope.created${objectNameUpper}, $scope, Notification);
 		$modalInstance.close($scope.created${objectNameUpper});
 	};
 
@@ -70,7 +70,7 @@ angular.module('${objectName}Module').controller('${objectName}ModalEditInstance
 
 	$scope.edit = function (selected${objectNameUpper}) {
 		$scope.selected${objectNameUpper} = selected${objectNameUpper};
-		${objectName}Service.update${objectNameUpper}($scope.selected${objectNameUpper}, Notification);
+		$scope.selected${objectNameUpper} = ${objectName}Service.update${objectNameUpper}($scope.selected${objectNameUpper}, Notification);
 		$modalInstance.close($scope.selected${objectNameUpper});
 	};
 
