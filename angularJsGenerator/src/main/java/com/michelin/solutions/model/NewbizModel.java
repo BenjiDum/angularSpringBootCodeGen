@@ -839,7 +839,7 @@ public class NewbizModel {
 
     }
 
-    public static Map<String, Object> generateMapTestForContacts(){
+    public static Map<String, Object> generateMapForContacts(){
         Map<String, Object> objectDescriptor = new HashMap<String, Object>();
 
         List<String> elet = new ArrayList<String>();
