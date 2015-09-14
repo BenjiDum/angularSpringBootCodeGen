@@ -7,9 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by dumasbe on 09/09/2015.
- */
 public class NewbizModelServiceProvider {
 
 
@@ -96,6 +93,7 @@ public class NewbizModelServiceProvider {
         List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
 
         /* Don't put the id item in the database column List*/
+        databaseElements.add(new JavaDatabaseObjectDescriptor("related_head_office", "String", "relatedHeadOffice", "RelatedHeadOffice"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("company_name", "String", "companyName", "CompanyName"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("address", "String", "address", "Address"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("zip_code", "String", "zipCode", "ZipCode"));
@@ -104,8 +102,6 @@ public class NewbizModelServiceProvider {
         databaseElements.add(new JavaDatabaseObjectDescriptor("contact_name", "String", "contactName", "ContactName"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("phone_number", "String", "phoneNumber", "PhoneNumber"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("email_address", "String", "emailAddress", "EmailAddress"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("related_head_office", "String", "relatedHeadOffice", "RelatedHeadOffice"));
-
 
         objectDescriptor.put("packageName", packageName);
         String packageCommonsName = "com.michelin.solutions.newbiz.commons";
@@ -148,6 +144,7 @@ public class NewbizModelServiceProvider {
         List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
 
         /* Don't put the id item in the database column List*/
+        databaseElements.add(new JavaDatabaseObjectDescriptor("related_agency", "String", "relatedAgency", "RelatedAgency"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("company_name", "String", "companyName", "CompanyName"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("address", "String", "address", "Address"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("zip_code", "String", "zipCode", "ZipCode"));
@@ -156,8 +153,6 @@ public class NewbizModelServiceProvider {
         databaseElements.add(new JavaDatabaseObjectDescriptor("contact_name", "String", "contactName", "ContactName"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("phone_number", "String", "phoneNumber", "PhoneNumber"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("email_address", "String", "emailAddress", "EmailAddress"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("related_agency", "String", "relatedAgency", "RelatedAgency"));
-
 
         objectDescriptor.put("packageName", packageName);
         String packageCommonsName = "com.michelin.solutions.newbiz.commons";
@@ -198,12 +193,12 @@ public class NewbizModelServiceProvider {
         List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
 
         /* Don't put the id item in the database column List*/
+        databaseElements.add(new JavaDatabaseObjectDescriptor("related_agency", "Integer", "relatedAgency", "RelatedAgency"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("contact_first_name", "String", "contactFirstName", "ContactFirstName"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("contact_last_name", "String", "contactLastName", "ContactLastName"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("email", "String", "email", "Email"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("agency_id", "Integer", "agencyId", "AgencyId"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("comment", "String", "comment", "Comment"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("related_agency", "Integer", "relatedAgency", "RelatedAgency"));
 
         objectDescriptor.put("packageName", packageName);
         String packageCommonsName = "com.michelin.solutions.newbiz.commons";
@@ -269,6 +264,4 @@ public class NewbizModelServiceProvider {
 
         return objectDescriptor;
     }
-
-
 }
