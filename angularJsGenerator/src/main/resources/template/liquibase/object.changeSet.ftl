@@ -10,7 +10,7 @@
 		
 		<createTable
             schemaName="DBO"
-            tableName="${objectNameFullUpper}">
+            tableName="${objectNameTable}">
 				<column name="id" type="numeric(19,0)" autoIncrement="true">
 					<constraints primaryKey="true" primaryKeyName="${objectName}PK" nullable="false"/>
 				</column>

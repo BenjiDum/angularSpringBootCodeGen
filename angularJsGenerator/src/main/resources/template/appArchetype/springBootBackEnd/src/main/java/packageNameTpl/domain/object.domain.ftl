@@ -1,5 +1,5 @@
 
-package ${packageCommonsName}.domain;
+package ${packageCommonsName};
 
 import com.agaetis.spring.jdbc.lightorm.annotation.Column;
 import com.agaetis.spring.jdbc.lightorm.annotation.Id;
