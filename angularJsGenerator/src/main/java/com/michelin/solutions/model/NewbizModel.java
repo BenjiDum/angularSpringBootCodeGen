@@ -47,7 +47,7 @@ public class NewbizModel {
 
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -86,7 +86,7 @@ public class NewbizModel {
 
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -132,7 +132,7 @@ public class NewbizModel {
 
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -176,7 +176,7 @@ public class NewbizModel {
 
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -196,7 +196,7 @@ public class NewbizModel {
         String objectName = "rawDriverIdRef";
         String objectNameUpper = "RawDriverIdRef";
         String packageName = "com.michelin.solutions.newbiz";
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         String objectNameTable = "raw_driver_id_ref";
         String springDataRestBaseUri = "${spring.data.rest.base-uri}";
         String moduleBaseUrlParamName = "CServerUrlOffer";
@@ -261,7 +261,7 @@ public class NewbizModel {
 
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -300,7 +300,7 @@ public class NewbizModel {
 
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -341,7 +341,7 @@ public class NewbizModel {
 
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -383,7 +383,7 @@ public class NewbizModel {
 
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -459,7 +459,7 @@ public class NewbizModel {
 
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -502,7 +502,7 @@ public class NewbizModel {
         databaseElements.add(new JavaDatabaseObjectDescriptor("reference_value", "float", "referenceValue", "ReferenceValue"));
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -544,7 +544,7 @@ public class NewbizModel {
         databaseElements.add(new JavaDatabaseObjectDescriptor("reference_value", "float", "referenceValue", "ReferenceValue"));
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -586,7 +586,7 @@ public class NewbizModel {
         databaseElements.add(new JavaDatabaseObjectDescriptor("parameter_name", "String", "parameterName", "ParameterName"));
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -630,7 +630,7 @@ public class NewbizModel {
         databaseElements.add(new JavaDatabaseObjectDescriptor("parameter_value", "float", "parameterValue", "ParameterValue"));
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -674,7 +674,7 @@ public class NewbizModel {
         databaseElements.add(new JavaDatabaseObjectDescriptor("parameter_value", "float", "parameterValue", "ParameterValue"));
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -710,7 +710,7 @@ public class NewbizModel {
         databaseElements.add(new JavaDatabaseObjectDescriptor("display_name", "String", "displayName", "DisplayName"));
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -747,7 +747,7 @@ public class NewbizModel {
 
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -792,7 +792,7 @@ public class NewbizModel {
         eletZ.add(new JavaDatabaseObjectDescriptor("training_comment", "String", "trainingComment", "TrainingComment"));
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", eletZ);
 
@@ -831,55 +831,12 @@ public class NewbizModel {
         eletZ.add(new JavaDatabaseObjectDescriptor("customer_name", "String", "customerName", "customerName"));
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", eletZ);
 
         return objectDescriptor;
 
-    }
-
-    public static Map<String, Object> generateMapForContacts(){
-        Map<String, Object> objectDescriptor = new HashMap<String, Object>();
-
-        List<String> elet = new ArrayList<String>();
-        elet.add("id");
-        elet.add("contactFirstName");
-        elet.add("contactLastName");
-        elet.add("email");
-        elet.add("agencyId");
-        elet.add("comment");
-
-        String objectName = "contact";
-        String objectNameUpper = "Contact";
-        String packageName = "com.michelin.solutions.newbiz";
-        String objectNameTable = "contact";
-        String springDataRestBaseUri = "${spring.data.rest.base-uri}";
-        String moduleBaseUrlParamName = "CServerUrl";
-
-        objectDescriptor.put("moduleBaseUrlParamName", moduleBaseUrlParamName);
-        objectDescriptor.put("springDataRestBaseUri", springDataRestBaseUri);
-        objectDescriptor.put("objectName", objectName);
-        objectDescriptor.put("objectNameUpper", objectNameUpper);
-        objectDescriptor.put("objectNameFullUpper", objectNameUpper.toUpperCase());
-        objectDescriptor.put("listElement", elet);
-        objectDescriptor.put("objectNameTable", objectNameTable);
-
-        List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
-
-        /* Don't put the id item in the database column List*/
-        databaseElements.add(new JavaDatabaseObjectDescriptor("contact_first_name", "String", "contactFirstName", "ContactFirstName"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("contact_last_name", "String", "contactLastName", "ContactLastName"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("email", "String", "email", "Email"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("agency_id", "Integer", "agencyId", "AgencyId"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("comment", "String", "comment", "Comment"));
-
-        objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
-        objectDescriptor.put("packageCommonsName", packageCommonsName);
-        objectDescriptor.put("listDatabaseElt", databaseElements);
-
-        return objectDescriptor;
     }
 
 

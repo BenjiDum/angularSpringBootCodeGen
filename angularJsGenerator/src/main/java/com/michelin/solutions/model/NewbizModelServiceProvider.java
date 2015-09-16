@@ -27,7 +27,7 @@ public class NewbizModelServiceProvider {
         String objectName = "spHeadOffice";
         String objectNameUpper = "SpHeadOffice";
         String packageName = "com.michelin.solutions.newbiz";
-        String objectNameTable = "sp_head_office";
+        String objectNameTable = "SP_HEAD_OFFICE";
         String springDataRestBaseUri = "${spring.data.rest.base-uri}";
         String moduleBaseUrlParamName = "CServerUrl";
 
@@ -53,7 +53,7 @@ public class NewbizModelServiceProvider {
 
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -78,7 +78,7 @@ public class NewbizModelServiceProvider {
         String objectName = "spAgency";
         String objectNameUpper = "SpAgency";
         String packageName = "com.michelin.solutions.newbiz";
-        String objectNameTable = "sp_agency";
+        String objectNameTable = "SP_AGENCY";
         String springDataRestBaseUri = "${spring.data.rest.base-uri}";
         String moduleBaseUrlParamName = "CServerUrl";
 
@@ -104,7 +104,7 @@ public class NewbizModelServiceProvider {
         databaseElements.add(new JavaDatabaseObjectDescriptor("email_address", "String", "emailAddress", "EmailAddress"));
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
@@ -129,7 +129,7 @@ public class NewbizModelServiceProvider {
         String objectName = "spDeliverySite";
         String objectNameUpper = "SpDeliverySite";
         String packageName = "com.michelin.solutions.newbiz";
-        String objectNameTable = "sp_delivery_site";
+        String objectNameTable = "SP_DELIVERY_SITE";
         String springDataRestBaseUri = "${spring.data.rest.base-uri}";
         String moduleBaseUrlParamName = "CServerUrl";
 
@@ -155,30 +155,29 @@ public class NewbizModelServiceProvider {
         databaseElements.add(new JavaDatabaseObjectDescriptor("email_address", "String", "emailAddress", "EmailAddress"));
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
         return objectDescriptor;
     }
 
-    public static Map<String, Object> generateMapForContacts(){
+    public static Map<String, Object> generateMapContacts(){
         Map<String, Object> objectDescriptor = new HashMap<String, Object>();
 
         List<String> elet = new ArrayList<String>();
         elet.add("id");
-        elet.add("relatedAgency");
+        elet.add("relatedAgencyId");
         elet.add("contactFirstName");
         elet.add("contactLastName");
         elet.add("email");
-        elet.add("agencyId");
         elet.add("comment");
 
 
-        String objectName = "spContact";
-        String objectNameUpper = "SpContact";
+        String objectName = "spContacts";
+        String objectNameUpper = "SpContacts";
         String packageName = "com.michelin.solutions.newbiz";
-        String objectNameTable = "sp_contact";
+        String objectNameTable = "SP_CONTACTS";
         String springDataRestBaseUri = "${spring.data.rest.base-uri}";
         String moduleBaseUrlParamName = "CServerUrl";
 
@@ -193,22 +192,21 @@ public class NewbizModelServiceProvider {
         List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
 
         /* Don't put the id item in the database column List*/
-        databaseElements.add(new JavaDatabaseObjectDescriptor("related_agency", "Integer", "relatedAgency", "RelatedAgency"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("related_agency_id", "Integer", "relatedAgencyId", "RelatedAgencyId"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("contact_first_name", "String", "contactFirstName", "ContactFirstName"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("contact_last_name", "String", "contactLastName", "ContactLastName"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("email", "String", "email", "Email"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("agency_id", "Integer", "agencyId", "AgencyId"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("comment", "String", "comment", "Comment"));
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
         return objectDescriptor;
     }
 
-    public static Map<String, Object> generateMapForStocks(){
+    public static Map<String, Object> generateMapStocks(){
         Map<String, Object> objectDescriptor = new HashMap<String, Object>();
 
         List<String> elet = new ArrayList<String>();
@@ -226,10 +224,10 @@ public class NewbizModelServiceProvider {
         elet.add("returnDateToExpertise");
         elet.add("equipmentStatus");
 
-        String objectName = "spStock";
-        String objectNameUpper = "SpStock";
+        String objectName = "spStocks";
+        String objectNameUpper = "SpStocks";
         String packageName = "com.michelin.solutions.newbiz";
-        String objectNameTable = "sp_stock";
+        String objectNameTable = "SP_STOCKS";
         String springDataRestBaseUri = "${spring.data.rest.base-uri}";
         String moduleBaseUrlParamName = "CServerUrl";
 
@@ -258,7 +256,7 @@ public class NewbizModelServiceProvider {
         databaseElements.add(new JavaDatabaseObjectDescriptor("equipment_status", "Date", "equipmentStatus", "EquipmentStatus"));
 
         objectDescriptor.put("packageName", packageName);
-        String packageCommonsName = "com.michelin.solutions.newbiz.commons";
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
         objectDescriptor.put("packageCommonsName", packageCommonsName);
         objectDescriptor.put("listDatabaseElt", databaseElements);
 
