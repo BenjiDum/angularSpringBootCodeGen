@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import com.michelin.solutions.model.NewbizModel;
+import com.michelin.solutions.model.NewbizModelServiceProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -106,15 +107,15 @@ public class AppGeneratorCore {
 	{
 		List<Map<String, Object>> result = new ArrayList<Map<String,Object>>();
 
-        result.add(NewbizModel.generateMapForArticle());
-        result.add(NewbizModel.generateMapForStock());
-        result.add(NewbizModel.generateMapForSupplier());
+        //result.add(NewbizModel.generateMapForArticle());
+        //result.add(NewbizModel.generateMapForStock());
+        //result.add(NewbizModel.generateMapForSupplier());
 
-		/*result.add(generateMapTestForRefValueConsumptionVehicle());
-		result.add(generateMapTestForRefValueConsumptionGroup());
-		result.add(generateMapTestForAnalysisParameters());
-		result.add(generateMapTestForDataAnalysisVehicle());
-		result.add(generateMapTestForDataAnalysisGroup());*/
+		//result.add(generateMapTestForRefValueConsumptionVehicle());
+		//result.add(generateMapTestForRefValueConsumptionGroup());
+		//result.add(generateMapTestForAnalysisParameters());
+		//result.add(generateMapTestForDataAnalysisVehicle());
+		//result.add(generateMapTestForDataAnalysisGroup());
 		
 		//result.add(generateMapTestForCustomer());
 		//result.add(generateMapTestForParamSeuil());
@@ -123,6 +124,14 @@ public class AppGeneratorCore {
 		//result.add(generateMapForHubTable());
 		//result.add(generateMapTestForBrick());
 		//result.add(generateMapTestForBrickOption());
+
+		//NewbizMoidelServiceProvider
+		//result.add(NewbizModelServiceProvider.generateMapHeadOffice());
+		//result.add(NewbizModelServiceProvider.generateMapAgency());
+		//result.add(NewbizModelServiceProvider.generateMapDeliverySite());
+		//result.add(NewbizModelServiceProvider.generateMapContacts());
+		result.add(NewbizModelServiceProvider.generateMapStocks());
+
 		
 		
 		return result;		
