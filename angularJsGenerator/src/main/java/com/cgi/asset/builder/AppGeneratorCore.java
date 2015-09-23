@@ -126,11 +126,11 @@ public class AppGeneratorCore {
 		//result.add(generateMapTestForBrickOption());
 
 		//NewbizMoidelServiceProvider
-		result.add(NewbizModelServiceProvider.generateMapHeadOffice());
+		//result.add(NewbizModelServiceProvider.generateMapHeadOffice());
 		//result.add(NewbizModelServiceProvider.generateMapAgency());
 		//result.add(NewbizModelServiceProvider.generateMapDeliverySite());
 		//result.add(NewbizModelServiceProvider.generateMapContacts());
-		//result.add(NewbizModelServiceProvider.generateMapStocks());
+		result.add(NewbizModelServiceProvider.generateMapStocks());
 
 		
 		

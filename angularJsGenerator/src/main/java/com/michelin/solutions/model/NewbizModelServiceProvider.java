@@ -217,12 +217,7 @@ public class NewbizModelServiceProvider {
         elet.add("materialId");
         elet.add("quantity");
         elet.add("deliveryDate");
-        elet.add("installationDate");
-        elet.add("relatedPlateNumber");
-        elet.add("relatedCustomer");
-        elet.add("disassemblyDate");
-        elet.add("returnDateToExpertise");
-        elet.add("equipmentStatus");
+        elet.add("comments");
 
         String objectName = "spStocks";
         String objectNameUpper = "SpStocks";
@@ -245,15 +240,10 @@ public class NewbizModelServiceProvider {
         databaseElements.add(new JavaDatabaseObjectDescriptor("related_delivery_site", "Integer", "relatedDeliverySite", "RelatedDeliverySite"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("material_type", "String", "materialType", "MaterialType"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("material_name", "String", "materialName", "MaterialName"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("material_id", "Integer", "materialId", "MaterialId"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("material_id", "String", "materialId", "MaterialId"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("quantity", "Integer", "quantity", "Quantity"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("delivery_date", "Date", "deliveryDate", "deliveryDate"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("installation_date", "Date", "installationDate", "InstallationDate"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("related_plate_number", "String", "relatedPlateNumber", "RelatedPlateNumber"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("related_customer", "Integer", "relatedCustomer", "RelatedCustomer"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("disassembly_date", "Date", "disassemblyDate", "DisassemblyDate"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("return_date_to_expertise", "Date", "returnDateToExpertise", "ReturnDateToExpertise"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("equipment_status", "Date", "equipmentStatus", "EquipmentStatus"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("comments", "String", "comments", "Comments"));
 
         objectDescriptor.put("packageName", packageName);
         String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
