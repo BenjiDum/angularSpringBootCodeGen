@@ -325,13 +325,13 @@ public class NewbizModel {
         elet.add("id");
         elet.add("brickOptionName");
         elet.add("relatedBrickId");
-        elet.add("description");
+        elet.add("brickOptionDescription");
 
 
         String objectName = "brickOption";
         String objectNameUpper = "BrickOption";
         String packageName = "com.michelin.solutions.newbiz.offer";
-        String objectNameTable = "brick_option";
+        String objectNameTable = "BRICK_OPTION";
         String springDataRestBaseUri = "${spring.data.rest.base-uri}";
         String moduleBaseUrlParamName = "CServerUrlOffer";
 
@@ -348,7 +348,7 @@ public class NewbizModel {
         /* Don't put the id item in the database column List*/
         databaseElements.add(new JavaDatabaseObjectDescriptor("brick_option_name", "String", "brickOptionName", "BrickOptionName"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("related_brick_id", "Integer", "relatedBrickId", "RelatedBrickId"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("description", "String", "description", "Description"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("brick_option_description", "String", "brickOptionDescription", "BrickOptionDescription"));
 
 
         objectDescriptor.put("packageName", packageName);
