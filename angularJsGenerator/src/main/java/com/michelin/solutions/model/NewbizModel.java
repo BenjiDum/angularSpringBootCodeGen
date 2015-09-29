@@ -22,12 +22,17 @@ public class NewbizModel {
         List<String> elet = new ArrayList<String>();
         elet.add("id");
         elet.add("articleType");
-        elet.add("serialNumber");
+        elet.add("isTelematic");
+        elet.add("isTpms");
+        elet.add("isOther");
+        elet.add("isAccessory");
+        elet.add("codeMichelin");
+        elet.add("description");
 
         String objectName = "article";
         String objectNameUpper = "Article";
         String packageName = "com.michelin.solutions.newbiz";
-        String objectNameTable = "article";
+        String objectNameTable = "ARTICLE";
         String springDataRestBaseUri = "${spring.data.rest.base-uri}";
         String moduleBaseUrlParamName = "CServerUrl";
 
@@ -43,8 +48,12 @@ public class NewbizModel {
 
         /* Don't put the id item in the database column List*/
         databaseElements.add(new JavaDatabaseObjectDescriptor("article_type", "String", "articleType", "ArticleType"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("serial_number", "String", "serialNumber", "SerialNumber"));
-
+        databaseElements.add(new JavaDatabaseObjectDescriptor("is_telematic", "Boolean", "isTelematic", "IsTelematic"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("is_tpms", "Boolean", "isTpms", "IsTpms"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("is_other", "Boolean", "isOther", "IsOther"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("is_accessory", "Boolean", "isAccessory", "IsAccessory"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("code_michelin", "String", "codeMichelin", "CodeMichelin"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("description", "String", "description", "Description"));
 
         objectDescriptor.put("packageName", packageName);
         String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
@@ -316,12 +325,13 @@ public class NewbizModel {
         elet.add("id");
         elet.add("brickOptionName");
         elet.add("relatedBrickId");
+        elet.add("brickOptionDescription");
 
 
         String objectName = "brickOption";
         String objectNameUpper = "BrickOption";
         String packageName = "com.michelin.solutions.newbiz.offer";
-        String objectNameTable = "brick_option";
+        String objectNameTable = "BRICK_OPTION";
         String springDataRestBaseUri = "${spring.data.rest.base-uri}";
         String moduleBaseUrlParamName = "CServerUrlOffer";
 
@@ -338,6 +348,7 @@ public class NewbizModel {
         /* Don't put the id item in the database column List*/
         databaseElements.add(new JavaDatabaseObjectDescriptor("brick_option_name", "String", "brickOptionName", "BrickOptionName"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("related_brick_id", "Integer", "relatedBrickId", "RelatedBrickId"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("brick_option_description", "String", "brickOptionDescription", "BrickOptionDescription"));
 
 
         objectDescriptor.put("packageName", packageName);
