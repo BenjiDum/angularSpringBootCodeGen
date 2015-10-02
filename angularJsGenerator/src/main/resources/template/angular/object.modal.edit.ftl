@@ -1,6 +1,6 @@
 <script type="text/ng-template" id="${objectName}EditModalContent.html">
     <div class="modal-header">
-        <div class="button-close"><button class="btn btn-danger" ng-click="cancel()" >X</button></div>
+        <div class="button-close"><button class="btn btn-danger glyphicon glyphicon-remove" ng-click="cancel()" ></button></div>
         <h3 class="modal-title">Edit your ${objectName}</h3>
     </div>
     <form novalidate class="simple-form">
