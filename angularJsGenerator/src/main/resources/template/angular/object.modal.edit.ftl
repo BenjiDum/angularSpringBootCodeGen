@@ -19,8 +19,8 @@
 			</#list>
         </div>
         <div class="modal-footer">
-            <input type="submit" class="btn btn-primary" ng-click="edit(selected${objectNameUpper})" value="Save"></button>
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            <button title="Validate" type="submit" class="btn btn-primary glyphicon glyphicon-ok" ng-click="edit(selected${objectNameUpper})"></button>
+            <button title="Cancel" class="btn btn-warning glyphicon glyphicon-new-window" ng-click="cancel()"></button>
         </div>
     </form>
 </script>
