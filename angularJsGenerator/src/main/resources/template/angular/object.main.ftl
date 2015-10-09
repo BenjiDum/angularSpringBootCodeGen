@@ -29,7 +29,7 @@
 				<td>{{${objectName}.${attr}}}</td>
 				</#list>
                 <td>
-                    <button class="btn btn-primary" ng-click="openEditModal(${objectName})">Edit</button>
+                    <button title="Edit" class="btn btn-primary glyphicon glyphicon-pencil" ng-click="openEditModal(${objectName})"></button>
                 </td>
             </tr>
         </tbody>
