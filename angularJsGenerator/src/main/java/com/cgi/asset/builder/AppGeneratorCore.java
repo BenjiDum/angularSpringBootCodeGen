@@ -107,7 +107,7 @@ public class AppGeneratorCore {
 	{
 		List<Map<String, Object>> result = new ArrayList<Map<String,Object>>();
 
-        //result.add(NewbizModel.generateMapForArticle());
+        result.add(NewbizModel.generateMapForArticle());
         //result.add(NewbizModel.generateMapForStock());
         //result.add(NewbizModel.generateMapForSupplier());
 
@@ -123,7 +123,7 @@ public class AppGeneratorCore {
 		//result.add(NewbizModel.generateMapForRawDriverId());
 		//result.add(NewbizModel.generateMapForHubTable());
 		//result.add(NewbizModel.generateMapTestForBrick());
-		result.add(NewbizModel.generateMapTestForBrickOption());
+		//result.add(NewbizModel.generateMapTestForBrickOption());
 
 		//NewbizMoidelServiceProvider
 		//result.add(NewbizModelServiceProvider.generateMapHeadOffice());

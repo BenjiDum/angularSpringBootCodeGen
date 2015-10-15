@@ -28,6 +28,9 @@ public class NewbizModel {
         elet.add("isAccessory");
         elet.add("codeMichelin");
         elet.add("description");
+        elet.add("codeArticleSupplier");
+        elet.add("isStockManagement");
+
 
         String objectName = "article";
         String objectNameUpper = "Article";
@@ -54,6 +57,8 @@ public class NewbizModel {
         databaseElements.add(new JavaDatabaseObjectDescriptor("is_accessory", "Boolean", "isAccessory", "IsAccessory"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("code_michelin", "String", "codeMichelin", "CodeMichelin"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("description", "String", "description", "Description"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("code_article_supplier", "String", "codeArticleSupplier", "CodeArticleSupplier"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("is_stock_management", "Boolean", "isStockManagement", "IsStockManagement"));
 
         objectDescriptor.put("packageName", packageName);
         String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
