@@ -30,7 +30,7 @@ public class NewbizModel {
         elet.add("description");
         elet.add("codeArticleSupplier");
         elet.add("isStockManagement");
-
+        elet.add("supplierName");
 
         String objectName = "article";
         String objectNameUpper = "Article";
@@ -59,6 +59,7 @@ public class NewbizModel {
         databaseElements.add(new JavaDatabaseObjectDescriptor("description", "String", "description", "Description"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("code_article_supplier", "String", "codeArticleSupplier", "CodeArticleSupplier"));
         databaseElements.add(new JavaDatabaseObjectDescriptor("is_stock_management", "Boolean", "isStockManagement", "IsStockManagement"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("supplier_name", "String", "supplierName", "SupplierName"));
 
         objectDescriptor.put("packageName", packageName);
         String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
@@ -826,6 +827,7 @@ public class NewbizModel {
         elet.add("driverFirstName");
         elet.add("driverLastName");
         elet.add("driverValidationDate");
+        elet.add("groupAnalysis");
 
         String objectName = "vehicleGroupBis";
         String objectNameUpper = "VehicleGroupBis";
@@ -845,6 +847,7 @@ public class NewbizModel {
         eletZ.add(new JavaDatabaseObjectDescriptor("group_name", "String", "groupName", "GroupName"));
         eletZ.add(new JavaDatabaseObjectDescriptor("related_offer_id", "Integer", "relatedOffer", "RelatedOffer"));
         eletZ.add(new JavaDatabaseObjectDescriptor("customer_name", "String", "customerName", "customerName"));
+        eletZ.add(new JavaDatabaseObjectDescriptor("group_analysis", "String", "groupAnalysis", "GroupAnalysis"));
 
         objectDescriptor.put("packageName", packageName);
         String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
