@@ -1,6 +1,10 @@
 package ${packageName}.controller;
 
 import java.util.List;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +19,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.Produces;
 
 import ${packageName}.dao.${objectNameUpper}DAO;
+import ${packageName}.service.${objectNameUpper}Service;
 import ${packageCommonsName}.${objectNameUpper};
 
 
@@ -30,12 +38,15 @@ public class ${objectNameUpper}Controller {
 	
 	@Autowired
 	private ${objectNameUpper}DAO ${objectName}DAO;
+
+	@Autowired
+	private ${objectNameUpper}Service ${objectName}Service;
 	
 	@RequestMapping(value="/v1/${objectName}/all", method = RequestMethod.GET)
 	public List<${objectNameUpper}> getAll${objectNameUpper}() {
 		return ${objectName}DAO.findAll();
 	}
-	
+
 	@RequestMapping(value="/v1/${objectName}/create", method = RequestMethod.POST)
 	ResponseEntity<?> create${objectNameUpper}(@RequestBody ${objectNameUpper} input) {
 		
@@ -74,5 +85,27 @@ public class ${objectNameUpper}Controller {
 	}
 	
 	</#list>
+
+
+	@RequestMapping(value="/v1/${objectName}/exportData", method = RequestMethod.GET)
+	@Produces({"text/csv"})
+	public void exportCSV${objectNameUpper}(HttpServletResponse response) throws IOException {
+
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
+
+		Date formatDate = new Date();
+
+		final String FILE_NAME = "export-${objectName}-"+formatter.format(formatDate)+".csv";
+
+		byte[] csv = ${objectName}Service.exportData(FILE_NAME);
+
+		response.setContentType("text/csv;charset="+StandardCharsets.UTF_16LE.name());
+		response.setHeader("Content-Disposition", "attachment; filename="+ FILE_NAME);
+		response.setContentLength(csv.length);
+		ServletOutputStream out = response.getOutputStream();
+		out.write(csv);
+
+	}
+
 		
 }

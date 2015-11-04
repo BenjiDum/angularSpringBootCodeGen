@@ -15,6 +15,83 @@ public class NewbizModel {
     //Package Name Newbiz  -> com.michelin.solutions.newbiz
     //Package Name Commons -> com.michelin.solutions.newbiz.commons.domain
 
+    public static Map<String, Object> generateMapForService(){
+        Map<String, Object> objectDescriptor = new HashMap<String, Object>();
+
+        List<String> elet = new ArrayList<String>();
+        elet.add("id");
+        elet.add("michelinArticleCode");
+        elet.add("serviceName");
+        elet.add("serviceType");
+
+        String objectName = "equipmentService";
+        String objectNameUpper = "EquipmentService";
+        String packageName = "com.michelin.solutions.newbiz";
+        String objectNameTable = "EQUIPMENT_SERVICE";
+        String springDataRestBaseUri = "${spring.data.rest.base-uri}";
+        String moduleBaseUrlParamName = "CServerUrl";
+
+        objectDescriptor.put("moduleBaseUrlParamName", moduleBaseUrlParamName);
+        objectDescriptor.put("springDataRestBaseUri", springDataRestBaseUri);
+        objectDescriptor.put("objectName", objectName);
+        objectDescriptor.put("objectNameUpper", objectNameUpper);
+        objectDescriptor.put("objectNameFullUpper", objectNameUpper.toUpperCase());
+        objectDescriptor.put("listElement", elet);
+        objectDescriptor.put("objectNameTable", objectNameTable);
+
+        List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
+
+        /* Don't put the id item in the database column List*/
+        databaseElements.add(new JavaDatabaseObjectDescriptor("michelin_article_code", "String", "michelinArticleCode", "MichelinArticleCode"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("service_name", "String", "serviceName", "ServiceName"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("service_type", "String", "serviceType", "ServiceType"));
+
+        objectDescriptor.put("packageName", packageName);
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
+        objectDescriptor.put("packageCommonsName", packageCommonsName);
+        objectDescriptor.put("listDatabaseElt", databaseElements);
+
+        return objectDescriptor;
+    }
+
+    public static Map<String, Object> generateMapForCentralStock(){
+        Map<String, Object> objectDescriptor = new HashMap<String, Object>();
+        List<String> elet = new ArrayList<String>();
+        elet.add("id");
+        elet.add("articleSupplierCode");
+        elet.add("quantity");
+        elet.add("serialNumber");
+
+        String objectName = "centralStock";
+        String objectNameUpper = "CentralStock";
+        String packageName = "com.michelin.solutions.newbiz";
+        String objectNameTable = "CENTRAL_STOCK";
+        String springDataRestBaseUri = "${spring.data.rest.base-uri}";
+        String moduleBaseUrlParamName = "CServerUrl";
+
+        objectDescriptor.put("moduleBaseUrlParamName", moduleBaseUrlParamName);
+        objectDescriptor.put("springDataRestBaseUri", springDataRestBaseUri);
+        objectDescriptor.put("objectName", objectName);
+        objectDescriptor.put("objectNameUpper", objectNameUpper);
+        objectDescriptor.put("objectNameFullUpper", objectNameUpper.toUpperCase());
+        objectDescriptor.put("listElement", elet);
+        objectDescriptor.put("objectNameTable", objectNameTable);
+
+        List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
+
+        /* Don't put the id item in the database column List*/
+        databaseElements.add(new JavaDatabaseObjectDescriptor("article_supplier_code", "String", "articleSupplierCode", "ArticleSupplierCode"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("quantity", "Integer", "quantity", "Quantity"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("serial_number", "String", "serialNumber", "SerialNumber"));
+
+        objectDescriptor.put("packageName", packageName);
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
+        objectDescriptor.put("packageCommonsName", packageCommonsName);
+        objectDescriptor.put("listDatabaseElt", databaseElements);
+
+        return objectDescriptor;
+    }
+
 
     public static Map<String, Object> generateMapForArticle(){
         Map<String, Object> objectDescriptor = new HashMap<String, Object>();

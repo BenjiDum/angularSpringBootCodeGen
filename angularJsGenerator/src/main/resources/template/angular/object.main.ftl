@@ -7,6 +7,7 @@
 
 <div>
 	<button class="btn btn-primary" ng-click="openCreateModal()">Create an ${objectName}</button>
+    <a ng-href="{{urlExportData}}" class="btn btn-primary">Export Date</a>
 </div>
 <br/>
 <div id="list-${objectName}Information" class="content scaffold-list" role="main">

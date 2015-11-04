@@ -29,9 +29,11 @@ public class SpringBootObjects {
 	
 	private static final String SPRING_BOOT_FOLDER = "springBootCodeFolderGeneration";
 
-	private static final String SPRING_DOMAIN_TPL = "/appArchetype/springBootBackEnd/src/main/java/packageNameTpl/domain/object.domain.ftl";
+	private static final String SPRING_DOMAIN_TPL =     "/appArchetype/springBootBackEnd/src/main/java/packageNameTpl/domain/object.domain.ftl";
 	
 	private static final String SPRING_CONTROLLER_TPL = "/appArchetype/springBootBackEnd/src/main/java/packageNameTpl/controller/object.controller.ftl";
+
+	private static final String SPRING_SERVICE_TPL =    "/appArchetype/springBootBackEnd/src/main/java/packageNameTpl/service/object.service.ftl";
 	
 	private static final String SPRING_DAO_TPL = "/appArchetype/springBootBackEnd/src/main/java/packageNameTpl/dao/object.dao.ftl";
 	
@@ -40,12 +42,16 @@ public class SpringBootObjects {
 	private static final String SPRING_FILE_SUFFIX_CONTROLLER_TPL = "Controller.java";
 	
 	private static final String SPRING_FILE_SUFFIX_DAO_TPL = "DAO.java";
-	
+
+	private static final String SPRING_FILE_SUFFIX_SERVICE_TPL = "Service.java";
+
 	private static final String SPRING_DOMAIN_PREFIX = "domain";
 	
 	private static final String SPRING_DAO_PREFIX = "dao";
 	
 	private static final String SPRING_CONTROLLER_PREFIX = "controller";
+
+	private static final String SPRING_SERVICE_PREFIX = "service";
 	
 	
 	public static void generateSpringFilesForObject(Properties prop, Configuration cfg, Map<String, Object> objectDescriptor){
@@ -70,6 +76,8 @@ public class SpringBootObjects {
 			generateControllerFile(prop, cfg, objectDescriptor);
 			
 			generateDaoFile(prop, cfg, objectDescriptor);
+
+			generateServiceFile(prop, cfg, objectDescriptor);
 			
 			//generataServiceFile(prop, cfg, objectDescriptor);
 		} catch (Exception e) {
@@ -164,25 +172,44 @@ public class SpringBootObjects {
         
 	}
 		
-//	private static void generataServiceFile(Properties prop, Configuration cfg, Map<String, Object> objectDescriptor)  throws Exception {
-//		/* Get the template (uses cache internally) */
-//        Template temp = cfg.getTemplate(ANGULAR_SERVICE_TPL);
-//        
-//        /* Merge data-model with template */        
-//        String fileName = prop.getProperty(ANGULAR_FOLDER)+objectDescriptor.get(OBJECT_NAME)+ANGULAR_FILE_SUFFIX_SERVICE_TPL;
-//        logger.debug("fileName to generate : "+ fileName);
-//        
-//        File f = new File(fileName);
-//        if(f.exists() && !f.isDirectory()){
-//        	Writer out = new OutputStreamWriter(new FileOutputStream(fileName));
-//            temp.process(objectDescriptor, out);
-//            out.flush();
-//            out.close();
-//        }
-//        else
-//        {
-//        	logger.info("fileName "+ fileName+" already exists, skipping it");
-//        }
-//	}
+	private static void generateServiceFile(Properties prop, Configuration cfg, Map<String, Object> objectDescriptor)  throws Exception {
+		/* Get the template (uses cache internally) */
+        Template temp = cfg.getTemplate(SPRING_SERVICE_TPL, "UTF-8");
+
+		String folderName = prop.getProperty(SPRING_BOOT_FOLDER)+objectDescriptor.get(OBJECT_NAME)+"/"+SPRING_SERVICE_PREFIX+"/";
+		if (AppUtils.createDirectory(folderName))
+		{
+			String fileName = folderName + objectDescriptor.get(OBJECT_NAME_UPPER)+SPRING_FILE_SUFFIX_SERVICE_TPL;
+			logger.debug("fileName to generate : "+ fileName);
+
+			File f = new File(fileName);
+			if(!f.exists()){
+				Writer out = new OutputStreamWriter(new FileOutputStream(fileName));
+				temp.process(objectDescriptor, out);
+				out.flush();
+				out.close();
+			}
+			else
+			{
+				logger.info("fileName "+ fileName+" already exists, skipping it");
+			}
+		}
+
+        /* Merge data-model with template */
+        /*String fileName = folderName+objectDescriptor.get(OBJECT_NAME)+SPRING_FILE_SUFFIX_SERVICE_TPL;
+        logger.debug("fileName to generate : "+ fileName);
+
+        File f = new File(fileName);
+        if(f.exists() && !f.isDirectory()){
+        	Writer out = new OutputStreamWriter(new FileOutputStream(fileName));
+            temp.process(objectDescriptor, out);
+            out.flush();
+            out.close();
+        }
+        else
+        {
+        	logger.info("fileName "+ fileName+" already exists, skipping it");
+        }*/
+	}
 
 }

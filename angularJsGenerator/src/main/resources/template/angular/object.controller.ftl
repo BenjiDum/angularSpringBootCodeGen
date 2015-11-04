@@ -10,6 +10,7 @@ ${objectName}Module.controller('${objectName}Ctrl', ['$rootScope','$scope','$htt
 		$scope.steperrors = [];
 		$scope.loading = 0;
         $scope.${objectName}List = [];
+		$scope.urlExportData = ${objectName}Service.exportDataUrl($scope);
 		${objectName}Service.getAll${objectNameUpper}s($scope);
 				
 		$scope.openEditModal = function (selected${objectNameUpper}) {

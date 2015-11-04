@@ -15,7 +15,6 @@ import java.util.Map;
 import java.util.Properties;
 
 import com.michelin.solutions.model.NewbizModel;
-import com.michelin.solutions.model.NewbizModelServiceProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -107,33 +106,30 @@ public class AppGeneratorCore {
 	{
 		List<Map<String, Object>> result = new ArrayList<Map<String,Object>>();
 
-        result.add(NewbizModel.generateMapForArticle());
-        //result.add(NewbizModel.generateMapForStock());
-        //result.add(NewbizModel.generateMapForSupplier());
+		result.add(NewbizModel.generateMapForService());
 
-		//result.add(NewbizModel.generateMapTestForRefValueConsumptionVehicle());
-		//result.add(NewbizModel.generateMapTestForRefValueConsumptionGroup());
-		//result.add(NewbizModel.generateMapTestForAnalysisParameters());
-		//result.add(NewbizModel.generateMapTestForDataAnalysisVehicle());
-		//result.add(NewbizModel.generateMapTestForDataAnalysisGroup());
+		//result.add(NewbizModel.generateMapForTpmsEquipment());
+        //result.add(NewbizModel.generateMapForFullTpmsEquipment());
+
+
+		//result.add(NewbizModel.generateMapForNotConnectedEquipment());
+		//result.add(NewbizModel.generateMapForFullNotConnectedEquipment());
+		//result.add(NewbizModel.generateMapForVehicleEquipment());
+
+
+		/*result.add(generateMapTestForRefValueConsumptionVehicle());
+		result.add(generateMapTestForRefValueConsumptionGroup());
+		result.add(generateMapTestForAnalysisParameters());
+		result.add(generateMapTestForDataAnalysisVehicle());
+		result.add(generateMapTestForDataAnalysisGroup());*/
 		
-		//result.add(NewbizModel.generateMapTestForCustomer());
-		//result.add(NewbizModel.generateMapTestForParamSeuil());
+		//result.add(generateMapTestForCustomer());
+		//result.add(generateMapTestForParamSeuil());
 		
-		//result.add(NewbizModel.generateMapForRawDriverId());
-		//result.add(NewbizModel.generateMapForHubTable());
-		//result.add(NewbizModel.generateMapTestForBrick());
-		//result.add(NewbizModel.generateMapTestForBrickOption());
-
-		result.add(NewbizModel.generateMapTestForWorkingSample());
-
-		//NewbizMoidelServiceProvider
-		//result.add(NewbizModelServiceProvider.generateMapHeadOffice());
-		//result.add(NewbizModelServiceProvider.generateMapAgency());
-		//result.add(NewbizModelServiceProvider.generateMapDeliverySite());
-		//result.add(NewbizModelServiceProvider.generateMapContacts());
-		//result.add(NewbizModelServiceProvider.generateMapStocks());
-
+		//result.add(generateMapForRawDriverId());
+		//result.add(generateMapForHubTable());
+		//result.add(generateMapTestForBrick());
+		//result.add(generateMapTestForBrickOption());
 		
 		
 		return result;		

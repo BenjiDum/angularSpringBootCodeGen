@@ -19,6 +19,9 @@ ${objectName}Module.factory('${objectName}Service', ['$resource','${moduleBaseUr
             });
             return deferred.promise;
 		},
+        exportConfigUrl : function($scope) {
+            return CServerUrl + api + '/exportData';
+        },
 		create${objectNameUpper} : function(${objectName}, $scope, Notification){
             var deferred = $q.defer();
             $http.post(${moduleBaseUrlParamName} + api + '/create', ${objectName})
