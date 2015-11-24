@@ -924,7 +924,7 @@ public class NewbizModel {
         eletZ.add(new JavaDatabaseObjectDescriptor("group_name", "String", "groupName", "GroupName"));
         eletZ.add(new JavaDatabaseObjectDescriptor("related_offer_id", "Integer", "relatedOffer", "RelatedOffer"));
         eletZ.add(new JavaDatabaseObjectDescriptor("customer_name", "String", "customerName", "customerName"));
-        eletZ.add(new JavaDatabaseObjectDescriptor("group_analysis", "String", "groupAnalysis", "GroupAnalysis"));
+     //   eletZ.add(new JavaDatabaseObjectDescriptor("group_analysis", "String", "groupAnalysis", "GroupAnalysis"));
 
         objectDescriptor.put("packageName", packageName);
         String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
@@ -936,4 +936,92 @@ public class NewbizModel {
     }
 
 
+    public static Map<String, Object> generateMapForInvoiceGroups(){
+        Map<String, Object> objectDescriptor = new HashMap<String, Object>();
+        List<String> elet = new ArrayList<String>();
+        elet.add("id");
+        elet.add("fleet_expert_name");
+        elet.add("group_code");
+        elet.add("group_name");
+        elet.add("related_offer_id");
+        elet.add("customer_id");
+        elet.add("is_activ");
+
+
+        String objectName = "vehicleGroupInvoiced";
+        String objectNameUpper = "VehicleGroupInvoiced";
+        String packageName = "com.michelin.solutions.newbiz";
+        String objectNameTable = "VEHICLE_GROUP_INVOICED";
+        String springDataRestBaseUri = "${spring.data.rest.base-uri}";
+        String moduleBaseUrlParamName = "CServerUrl";
+
+        objectDescriptor.put("moduleBaseUrlParamName", moduleBaseUrlParamName);
+        objectDescriptor.put("springDataRestBaseUri", springDataRestBaseUri);
+        objectDescriptor.put("objectName", objectName);
+        objectDescriptor.put("objectNameUpper", objectNameUpper);
+        objectDescriptor.put("objectNameFullUpper", objectNameUpper.toUpperCase());
+        objectDescriptor.put("listElement", elet);
+        objectDescriptor.put("objectNameTable", objectNameTable);
+
+        List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
+
+        /* Don't put the id item in the database column List*/
+        databaseElements.add(new JavaDatabaseObjectDescriptor("fleet_expert_name", "String", "fleetExpertName", "FleetExpertName"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("group_code", "String", "groupCode", "GroupCode"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("group_name", "String", "groupName", "GroupName"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("related_offer_id", "Integer", "relatedOffer", "RelatedOffer"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("customer_id", "Integer", "customerId", "CustomerId"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("is_activ", "boolean", "isActiv", "IsActiv"));
+
+        objectDescriptor.put("packageName", packageName);
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
+        objectDescriptor.put("packageCommonsName", packageCommonsName);
+        objectDescriptor.put("listDatabaseElt", databaseElements);
+
+        return objectDescriptor;
+    }
+
+
+    public static Map<String, Object> generateMapForInvoiceGroupsLink(){
+        Map<String, Object> objectDescriptor = new HashMap<String, Object>();
+        List<String> elet = new ArrayList<String>();
+        elet.add("id");
+        elet.add("comment");
+        elet.add("start_date");
+        elet.add("end_date");
+        elet.add("vehicle_group_id");
+        elet.add("vehicle_id");
+
+
+        String objectName = "vehicleGroupInvoicedLink";
+        String objectNameUpper = "VehicleGroupInvoicedLink";
+        String packageName = "com.michelin.solutions.newbiz";
+        String objectNameTable = "VEHICLE_GROUP_INVOICED_LINK";
+        String springDataRestBaseUri = "${spring.data.rest.base-uri}";
+        String moduleBaseUrlParamName = "CServerUrl";
+
+        objectDescriptor.put("moduleBaseUrlParamName", moduleBaseUrlParamName);
+        objectDescriptor.put("springDataRestBaseUri", springDataRestBaseUri);
+        objectDescriptor.put("objectName", objectName);
+        objectDescriptor.put("objectNameUpper", objectNameUpper);
+        objectDescriptor.put("objectNameFullUpper", objectNameUpper.toUpperCase());
+        objectDescriptor.put("listElement", elet);
+        objectDescriptor.put("objectNameTable", objectNameTable);
+
+        List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
+
+        /* Don't put the id item in the database column List*/
+        databaseElements.add(new JavaDatabaseObjectDescriptor("comment", "String", "comment", "Comment"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("start_date", "Date", "startDate", "StartDate"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("end_date", "Date", "endDate", "EndDate"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("vehicle_group_id", "Integer", "vehicleGroupId", "VehicleGroupId"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("vehicle_id", "Integer", "vehicleId", "VehicleId"));
+
+        objectDescriptor.put("packageName", packageName);
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
+        objectDescriptor.put("packageCommonsName", packageCommonsName);
+        objectDescriptor.put("listDatabaseElt", databaseElements);
+
+        return objectDescriptor;
+    }
 }

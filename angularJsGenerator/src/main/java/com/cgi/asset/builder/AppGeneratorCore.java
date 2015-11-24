@@ -106,7 +106,9 @@ public class AppGeneratorCore {
 	{
 		List<Map<String, Object>> result = new ArrayList<Map<String,Object>>();
 
-		result.add(NewbizModel.generateMapForService());
+		// result.add(NewbizModel.generateMapForService());
+		result.add(NewbizModel.generateMapForInvoiceGroups());
+		result.add(NewbizModel.generateMapForInvoiceGroupsLink());
 
 		//result.add(NewbizModel.generateMapForTpmsEquipment());
         //result.add(NewbizModel.generateMapForFullTpmsEquipment());
