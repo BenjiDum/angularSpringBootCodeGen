@@ -19,7 +19,7 @@ ${objectName}Module.factory('${objectName}Service', ['$resource','${moduleBaseUr
             });
             return deferred.promise;
 		},
-        exportConfigUrl : function($scope) {
+        exportDataUrl : function($scope) {
             return CServerUrl + api + '/exportData';
         },
 		create${objectNameUpper} : function(${objectName}, $scope, Notification){

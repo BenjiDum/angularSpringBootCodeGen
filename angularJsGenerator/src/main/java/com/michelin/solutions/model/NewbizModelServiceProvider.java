@@ -1,6 +1,6 @@
 package com.michelin.solutions.model;
 
-import com.cgi.asset.springboot.JavaDatabaseObjectDescriptor;
+import com.cgi.asset.utils.JavaDatabaseObjectDescriptor;
 
 import java.util.ArrayList;
 import java.util.HashMap;

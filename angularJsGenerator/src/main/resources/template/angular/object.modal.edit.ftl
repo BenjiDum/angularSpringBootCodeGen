@@ -7,15 +7,13 @@
         <div class="modal-body">
         	<#assign attributes = listElement>
         	<#list attributes as attr>
-				
-				<div class="row">
-	                <label for="${attr}Edit" class="col-sm-2 control-label">${attr} : </label>
-	                <div class="col-sm-10">
-	                    <input type="text" class="form-control" id="${attr}Edit" value="{{selected${objectNameUpper}.${attr}}}" ng-model="selected${objectNameUpper}.${attr}">
-	                </div>
-	            </div>
-	            <br/>
-				
+            <div class="row">
+                <label for="${attr}Edit" class="col-sm-2 control-label">${attr} : </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="${attr}Edit" value="{{selected${objectNameUpper}.${attr}}}" ng-model="selected${objectNameUpper}.${attr}">
+                </div>
+            </div>
+            <br/>
 			</#list>
         </div>
         <div class="modal-footer">

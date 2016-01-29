@@ -8,11 +8,7 @@ import java.util.Properties;
 
 import java.sql.*;
 
-import com.cgi.asset.angular.AngularObjects;
-import com.cgi.asset.springboot.JavaDatabaseObjectDescriptor;
-import com.cgi.asset.springboot.SpringBootObjects;
-
-import freemarker.template.Configuration;
+import com.cgi.asset.utils.JavaDatabaseObjectDescriptor;
 
 public class AppDbReader {
 

@@ -1,4 +1,4 @@
-package com.cgi.asset.springboot;
+package com.cgi.asset.utils;
 
 public class JavaDatabaseObjectDescriptor {
 	String dbColumnName;

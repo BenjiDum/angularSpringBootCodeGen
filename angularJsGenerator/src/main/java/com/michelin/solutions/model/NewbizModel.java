@@ -1,6 +1,6 @@
 package com.michelin.solutions.model;
 
-import com.cgi.asset.springboot.JavaDatabaseObjectDescriptor;
+import com.cgi.asset.utils.JavaDatabaseObjectDescriptor;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +14,340 @@ public class NewbizModel {
 
     //Package Name Newbiz  -> com.michelin.solutions.newbiz
     //Package Name Commons -> com.michelin.solutions.newbiz.commons.domain
+
+    public static Map<String, Object> generateMapForCentralStockItemHistory() {
+
+
+        Map<String, Object> objectDescriptor = new HashMap<String, Object>();
+        List<String> elet = new ArrayList<String>();
+        elet.add("id");
+        elet.add("relatedCentralStockLine");
+        elet.add("stockMvtQty");
+        elet.add("stockMvtComment");
+        elet.add("stockMvtDate");
+
+        String objectName = "centralStockItemHistory";
+        String objectNameUpper = "CentralStockItemHistory";
+        String packageName = "com.michelin.solutions.newbiz";
+        String objectNameTable = "CENTRAL_STOCK_ITEM_HISTORY";
+        String springDataRestBaseUri = "${spring.data.rest.base-uri}";
+        String moduleBaseUrlParamName = "CServerUrl";
+
+        objectDescriptor.put("moduleBaseUrlParamName", moduleBaseUrlParamName);
+        objectDescriptor.put("springDataRestBaseUri", springDataRestBaseUri);
+        objectDescriptor.put("objectName", objectName);
+        objectDescriptor.put("objectNameUpper", objectNameUpper);
+        objectDescriptor.put("objectNameFullUpper", objectNameUpper.toUpperCase());
+        objectDescriptor.put("listElement", elet);
+        objectDescriptor.put("objectNameTable", objectNameTable);
+
+        List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
+
+        /*
+
+        elet.add("relatedCentralStockLine");
+        elet.add("stockMvtQty");
+        elet.add("stockMvtComment");
+        elet.add("stockMvtDate");
+
+         */
+
+        /* Don't put the id item in the database column List*/
+        databaseElements.add(new JavaDatabaseObjectDescriptor("related_central_stock_line", "Integer", "relatedCentralStockLine", "RelatedCentralStockLine"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("stock_mvt_qty", "Integer", "stockMvtQty", "StockMvtQty"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("stock_mvt_comment", "String", "stockMvtComment", "StockMvtComment"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("stock_mvt_date", "Date", "stockMvtDate", "StockMvtDate"));
+
+
+        objectDescriptor.put("packageName", packageName);
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
+        objectDescriptor.put("packageCommonsName", packageCommonsName);
+        objectDescriptor.put("listDatabaseElt", databaseElements);
+
+
+        return objectDescriptor;
+    }
+
+    public static Map<String, Object> generateMapForSpStockItemHistory() {
+
+
+        Map<String, Object> objectDescriptor = new HashMap<String, Object>();
+        List<String> elet = new ArrayList<String>();
+        elet.add("id");
+        elet.add("relatedSpStockLine");
+        elet.add("stockMvtQty");
+        elet.add("stockMvtComment");
+        elet.add("stockMvtDate");
+
+        String objectName = "spStockItemHistory";
+        String objectNameUpper = "SpStockItemHistory";
+        String packageName = "com.michelin.solutions.newbiz";
+        String objectNameTable = "SP_STOCK_ITEM_HISTORY";
+        String springDataRestBaseUri = "${spring.data.rest.base-uri}";
+        String moduleBaseUrlParamName = "CServerUrl";
+
+        objectDescriptor.put("moduleBaseUrlParamName", moduleBaseUrlParamName);
+        objectDescriptor.put("springDataRestBaseUri", springDataRestBaseUri);
+        objectDescriptor.put("objectName", objectName);
+        objectDescriptor.put("objectNameUpper", objectNameUpper);
+        objectDescriptor.put("objectNameFullUpper", objectNameUpper.toUpperCase());
+        objectDescriptor.put("listElement", elet);
+        objectDescriptor.put("objectNameTable", objectNameTable);
+
+        List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
+
+        /*
+
+        elet.add("relatedCentralStockLine");
+        elet.add("stockMvtQty");
+        elet.add("stockMvtComment");
+        elet.add("stockMvtDate");
+
+         */
+
+        /* Don't put the id item in the database column List*/
+        databaseElements.add(new JavaDatabaseObjectDescriptor("related_sp_stock_line", "Integer", "relatedSpStockLine", "RelatedSpStockLine"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("stock_mvt_qty", "Integer", "stockMvtQty", "StockMvtQty"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("stock_mvt_comment", "String", "stockMvtComment", "StockMvtComment"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("stock_mvt_date", "Date", "stockMvtDate", "StockMvtDate"));
+
+
+        objectDescriptor.put("packageName", packageName);
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
+        objectDescriptor.put("packageCommonsName", packageCommonsName);
+        objectDescriptor.put("listDatabaseElt", databaseElements);
+
+
+        return objectDescriptor;
+    }
+
+
+    public static Map<String, Object> generateMapForPOI() {
+
+    /*
+        {"id": "Poi_Id1", "name": "Cornanré", "custid": "IdElectrumCust#1", "custname": "DISSEGNA-comm customer", "lat": 23.0345, "long": 32.0345, "type": "site client"},
+    */
+
+        Map<String, Object> objectDescriptor = new HashMap<String, Object>();
+        List<String> elet = new ArrayList<String>();
+        elet.add("id");
+        elet.add("poi_name");
+        elet.add("electrum_cust_id");
+        elet.add("poi_type");
+        elet.add("latitude");
+        elet.add("longitude");
+
+        String objectName = "customerReferentialPoi";
+        String objectNameUpper = "CustomerReferentialPoi";
+        String packageName = "com.michelin.solutions.newbiz";
+        String objectNameTable = "CUST_REFERENTIAL_POI";
+        String springDataRestBaseUri = "${spring.data.rest.base-uri}";
+        String moduleBaseUrlParamName = "CServerUrl";
+
+        objectDescriptor.put("moduleBaseUrlParamName", moduleBaseUrlParamName);
+        objectDescriptor.put("springDataRestBaseUri", springDataRestBaseUri);
+        objectDescriptor.put("objectName", objectName);
+        objectDescriptor.put("objectNameUpper", objectNameUpper);
+        objectDescriptor.put("objectNameFullUpper", objectNameUpper.toUpperCase());
+        objectDescriptor.put("listElement", elet);
+        objectDescriptor.put("objectNameTable", objectNameTable);
+
+        List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
+
+        /*
+
+        elet.add("id");
+        elet.add("poi_name");
+        elet.add("electrum_cust_id");
+        elet.add("poi_type");
+        elet.add("lat");
+        elet.add("long");
+
+         */
+
+        /* Don't put the id item in the database column List*/
+        databaseElements.add(new JavaDatabaseObjectDescriptor("electrum_cust_id", "Integer", "electrumCustId", "ElectrumCustId"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("poi_name", "String", "poiName", "PoiName"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("poi_type", "String", "poiType", "PoiType"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("latitude", "Integer", "latitude", "Latitude"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("longitude", "Integer", "longitude", "Longitude"));
+
+
+
+        objectDescriptor.put("packageName", packageName);
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
+        objectDescriptor.put("packageCommonsName", packageCommonsName);
+        objectDescriptor.put("listDatabaseElt", databaseElements);
+
+
+        return objectDescriptor;
+    }
+
+    public static Map<String, Object> generateMapForImportFileSummary() {
+
+
+        Map<String, Object> objectDescriptor = new HashMap<String, Object>();
+        List<String> elet = new ArrayList<String>();
+        elet.add("id");
+        elet.add("fileName");
+        elet.add("fileType");
+        elet.add("uploadedBy");
+        elet.add("fileUploadDate");
+        elet.add("importComment");
+        elet.add("nbLines");
+        elet.add("nbLinesOK");
+        elet.add("nbLinesWarning");
+        elet.add("nbLinesKO");
+        elet.add("importStatus");
+
+
+        String objectName = "importFileSummary";
+        String objectNameUpper = "ImportFileSummary";
+        String packageName = "com.michelin.solutions.newbiz";
+        String objectNameTable = "IMPORT_FILE_SUMMARY";
+        String springDataRestBaseUri = "${spring.data.rest.base-uri}";
+        String moduleBaseUrlParamName = "CServerUrl";
+
+        objectDescriptor.put("moduleBaseUrlParamName", moduleBaseUrlParamName);
+        objectDescriptor.put("springDataRestBaseUri", springDataRestBaseUri);
+        objectDescriptor.put("objectName", objectName);
+        objectDescriptor.put("objectNameUpper", objectNameUpper);
+        objectDescriptor.put("objectNameFullUpper", objectNameUpper.toUpperCase());
+        objectDescriptor.put("listElement", elet);
+        objectDescriptor.put("objectNameTable", objectNameTable);
+
+        List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
+
+        /*
+
+        ImportFileSummary
+
+
+		String fileName
+		String fileType
+		String uploadedBy
+		Date fileUploadDate
+		String importComment
+		Integer nbLines
+		Integer NbLinesOK
+		Integer NbLinesWarning
+		Integer NbLinesKo
+		String importStatus (ENUMERATION)
+
+        */
+
+
+        /* Don't put the id item in the database column List*/
+        databaseElements.add(new JavaDatabaseObjectDescriptor("file_name", "String", "fileName", "FileName"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("file_type", "String", "fileType", "FileType"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("uploaded_by", "String", "uploadedBy", "UploadedBy"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("file_upload_date", "Date", "fileUploadDate", "FileUploadDate"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("import_comment", "String", "importComment", "ImportComment"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("nb_lines", "Integer", "nbLines", "NbLines"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("nb_lines_ok", "Integer", "nbLinesOK", "NbLinesOK"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("nb_lines_warning", "Integer", "nbLinesWarning", "NbLinesWarning"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("nb_lines_ko", "Integer", "nbLinesKo", "NbLinesKo"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("import_status", "String", "importStatus", "ImportStatus"));
+
+        objectDescriptor.put("packageName", packageName);
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
+        objectDescriptor.put("packageCommonsName", packageCommonsName);
+        objectDescriptor.put("listDatabaseElt", databaseElements);
+
+
+        return objectDescriptor;
+    }
+
+    public static Map<String, Object> generateMapForImportFileResult() {
+        Map<String, Object> objectDescriptor = new HashMap<String, Object>();
+
+        List<String> elet = new ArrayList<String>();
+        elet.add("id");
+        elet.add("relatedSummaryId");
+        elet.add("infoLevel");
+        elet.add("errorContent");
+
+        String objectName = "importFileResult";
+        String objectNameUpper = "ImportFileResult";
+        String packageName = "com.michelin.solutions.newbiz";
+        String objectNameTable = "IMPORT_FILE_RESULT";
+        String springDataRestBaseUri = "${spring.data.rest.base-uri}";
+        String moduleBaseUrlParamName = "CServerUrl";
+
+        objectDescriptor.put("moduleBaseUrlParamName", moduleBaseUrlParamName);
+        objectDescriptor.put("springDataRestBaseUri", springDataRestBaseUri);
+        objectDescriptor.put("objectName", objectName);
+        objectDescriptor.put("objectNameUpper", objectNameUpper);
+        objectDescriptor.put("objectNameFullUpper", objectNameUpper.toUpperCase());
+        objectDescriptor.put("listElement", elet);
+        objectDescriptor.put("objectNameTable", objectNameTable);
+
+        List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
+
+
+
+                /*
+
+        ImportFileResult
+        Integer relatedSummaryId
+        String infoLevel (WARNING / ERROR / OK)
+        String errorContent
+
+        */
+
+        /* Don't put the id item in the database column List*/
+        databaseElements.add(new JavaDatabaseObjectDescriptor("related_summary_id", "Integer", "relatedSummaryId", "RelatedSummaryId"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("info_level", "String", "infoLevel", "InfoLevel"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("error_content", "String", "errorContent", "ErrorContent"));
+
+        objectDescriptor.put("packageName", packageName);
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
+        objectDescriptor.put("packageCommonsName", packageCommonsName);
+        objectDescriptor.put("listDatabaseElt", databaseElements);
+
+
+        return objectDescriptor;
+    }
+
+
+
+    public static Map<String, Object> generateMapForEquipedAccesoriesLink(){
+        Map<String, Object> objectDescriptor = new HashMap<String, Object>();
+
+        List<String> elet = new ArrayList<String>();
+        elet.add("id");
+        elet.add("relatedTelemEquipId");
+        elet.add("relatedAccesoryId");
+
+
+        String objectName = "equipedAccessoryLink";
+        String objectNameUpper = "EquipedAccessoryLink";
+        String packageName = "com.michelin.solutions.newbiz";
+        String objectNameTable = "EQUIPED_ACCESSORY_LINK";
+        String springDataRestBaseUri = "${spring.data.rest.base-uri}";
+        String moduleBaseUrlParamName = "CServerUrl";
+
+        objectDescriptor.put("moduleBaseUrlParamName", moduleBaseUrlParamName);
+        objectDescriptor.put("springDataRestBaseUri", springDataRestBaseUri);
+        objectDescriptor.put("objectName", objectName);
+        objectDescriptor.put("objectNameUpper", objectNameUpper);
+        objectDescriptor.put("objectNameFullUpper", objectNameUpper.toUpperCase());
+        objectDescriptor.put("listElement", elet);
+        objectDescriptor.put("objectNameTable", objectNameTable);
+
+        List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
+
+        /* Don't put the id item in the database column List*/
+        databaseElements.add(new JavaDatabaseObjectDescriptor("related_telem_equip_id", "Integer", "relatedTelemEquipId", "RelatedTelemEquipId"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("related_accesory_id", "Integer", "relatedAccesoryId", "RelatedAccesoryId"));
+
+        objectDescriptor.put("packageName", packageName);
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
+        objectDescriptor.put("packageCommonsName", packageCommonsName);
+        objectDescriptor.put("listDatabaseElt", databaseElements);
+
+        return objectDescriptor;
+    }
 
     public static Map<String, Object> generateMapForService(){
         Map<String, Object> objectDescriptor = new HashMap<String, Object>();
@@ -58,14 +392,21 @@ public class NewbizModel {
         Map<String, Object> objectDescriptor = new HashMap<String, Object>();
         List<String> elet = new ArrayList<String>();
         elet.add("id");
-        elet.add("articleSupplierCode");
-        elet.add("quantity");
-        elet.add("serialNumber");
+        elet.add("materialType");
+        elet.add("materialName");
+        elet.add("materialSerialNumber");
+        elet.add("iccId");
+        elet.add("supplierProductDesignation");
+        elet.add("initialQty");
+        elet.add("remainingQty");
+        elet.add("uploadDt");
+        elet.add("lastDeliveryDt");
+        elet.add("relatedCentralStockAudit");
 
-        String objectName = "centralStock";
-        String objectNameUpper = "CentralStock";
+        String objectName = "centralStockLine";
+        String objectNameUpper = "CentralStockLine";
         String packageName = "com.michelin.solutions.newbiz";
-        String objectNameTable = "CENTRAL_STOCK";
+        String objectNameTable = "CENTRAL_STOCK_LINE";
         String springDataRestBaseUri = "${spring.data.rest.base-uri}";
         String moduleBaseUrlParamName = "CServerUrl";
 
@@ -80,9 +421,58 @@ public class NewbizModel {
         List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
 
         /* Don't put the id item in the database column List*/
-        databaseElements.add(new JavaDatabaseObjectDescriptor("article_supplier_code", "String", "articleSupplierCode", "ArticleSupplierCode"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("quantity", "Integer", "quantity", "Quantity"));
-        databaseElements.add(new JavaDatabaseObjectDescriptor("serial_number", "String", "serialNumber", "SerialNumber"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("material_type", "String", "materialType", "MaterialType"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("material_name", "String", "materialName", "MaterialName"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("material_serial_number", "String", "materialSerialNumber", "MaterialSerialNumber"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("icc_id", "String", "iccId", "IccId"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("supplier_product_designation", "String", "supplierProductDesignation", "SupplierProductDesignation"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("initial_qty", "Integer", "initialQty", "InitialQty"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("remaining_qty", "Integer", "remainingQty", "RemainingQty"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("upload_dt", "Date", "uploadDt", "UploadDt"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("last_delivery_dt", "Date", "lastDeliveryDt", "LastDeliveryDt"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("related_central_stock_audit", "Integer", "relatedCentralStockAudit", "RelatedCentralStockAudit"));
+
+        objectDescriptor.put("packageName", packageName);
+        String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";
+        objectDescriptor.put("packageCommonsName", packageCommonsName);
+        objectDescriptor.put("listDatabaseElt", databaseElements);
+
+        return objectDescriptor;
+    }
+
+    public static Map<String, Object> generateMapForCentralStockAudit(){
+        Map<String, Object> objectDescriptor = new HashMap<String, Object>();
+        List<String> elet = new ArrayList<String>();
+        elet.add("id");
+        elet.add("supplier");
+        elet.add("deliveryNote");
+        elet.add("deliveryPoint");
+        elet.add("fileOrderDt");
+        elet.add("uploadDt");
+
+        String objectName = "centralStockUpload";
+        String objectNameUpper = "CentralStockUpload";
+        String packageName = "com.michelin.solutions.newbiz";
+        String objectNameTable = "CENTRAL_STOCK_UPLOAD";
+        String springDataRestBaseUri = "${spring.data.rest.base-uri}";
+        String moduleBaseUrlParamName = "CServerUrl";
+
+        objectDescriptor.put("moduleBaseUrlParamName", moduleBaseUrlParamName);
+        objectDescriptor.put("springDataRestBaseUri", springDataRestBaseUri);
+        objectDescriptor.put("objectName", objectName);
+        objectDescriptor.put("objectNameUpper", objectNameUpper);
+        objectDescriptor.put("objectNameFullUpper", objectNameUpper.toUpperCase());
+        objectDescriptor.put("listElement", elet);
+        objectDescriptor.put("objectNameTable", objectNameTable);
+
+        List<JavaDatabaseObjectDescriptor> databaseElements = new ArrayList<JavaDatabaseObjectDescriptor>();
+
+        /* Don't put the id item in the database column List*/
+        databaseElements.add(new JavaDatabaseObjectDescriptor("supplier", "String", "supplier", "Supplier"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("delivery_note", "String", "deliveryNote", "deliveryNote"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("delivery_point", "String", "deliveryPoint", "DeliveryPoint"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("upload_dt", "Date", "uploadDt", "UploadDt"));
+        databaseElements.add(new JavaDatabaseObjectDescriptor("file_order_dt", "Date", "fileOrderDt", "FileOrderDt"));
 
         objectDescriptor.put("packageName", packageName);
         String packageCommonsName = "com.michelin.solutions.newbiz.commons.domain";

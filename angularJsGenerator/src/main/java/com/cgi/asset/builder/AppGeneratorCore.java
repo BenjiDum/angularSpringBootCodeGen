@@ -9,7 +9,6 @@ import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -20,7 +19,6 @@ import org.slf4j.LoggerFactory;
 
 import com.cgi.asset.angular.AngularObjects;
 import com.cgi.asset.liquibase.LiquibaseObjects;
-import com.cgi.asset.springboot.JavaDatabaseObjectDescriptor;
 import com.cgi.asset.springboot.SpringBootObjects;
 
 import freemarker.template.Configuration;
@@ -87,12 +85,6 @@ public class AppGeneratorCore {
 		    } catch (IOException e) {
 		      e.printStackTrace();
 		    }
-
-			
-			
-			//dir.
-			
-			
 		}
 		else{
 			logger.error("it sucks");
@@ -106,7 +98,14 @@ public class AppGeneratorCore {
 	{
 		List<Map<String, Object>> result = new ArrayList<Map<String,Object>>();
 
-		result.add(NewbizModel.generateMapForService());
+        result.add(NewbizModel.generateMapForPOI());
+
+
+		//result.add(NewbizModel.generateMapForSpStockItemHistory());
+		//result.add(NewbizModel.generateMapForCentralStockItemHistory());
+
+		//result.add(NewbizModel.generateMapForCentralStock());
+		//result.add(NewbizModel.generateMapForCentralStockAudit());
 
 		//result.add(NewbizModel.generateMapForTpmsEquipment());
         //result.add(NewbizModel.generateMapForFullTpmsEquipment());
