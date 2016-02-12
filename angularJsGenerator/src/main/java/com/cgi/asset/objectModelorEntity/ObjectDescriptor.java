@@ -1,5 +1,7 @@
 package com.cgi.asset.objectModelorEntity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +14,15 @@ public class ObjectDescriptor {
 
     String packageName;
 
-    boolean isAudited;
+    boolean audited;
+
+    boolean liquibasePart;
+
+    boolean javaPart;
+
+    boolean angularController;
+
+    boolean springBootPart;
 
     String angularModuleName;
 
@@ -35,11 +45,11 @@ public class ObjectDescriptor {
     }
 
     public boolean isAudited() {
-        return isAudited;
+        return audited;
     }
 
     public void setAudited(boolean audited) {
-        isAudited = audited;
+        this.audited = audited;
     }
 
     public String getAngularModuleName() {
@@ -60,5 +70,60 @@ public class ObjectDescriptor {
 
     public Map<String, Object> convertForFreemarker(){
         return null;
+    }
+
+    @JsonIgnore
+    public String getUpperCaseName(){
+        return getName().toUpperCase();
+    }
+
+    @JsonIgnore
+    public String getLowerCaseName(){
+        return getName().toLowerCase();
+    }
+
+    public boolean isLiquibasePart() {
+        return liquibasePart;
+    }
+
+    public void setLiquibasePart(boolean liquibasePart) {
+        this.liquibasePart = liquibasePart;
+    }
+
+    public boolean isJavaPart() {
+        return javaPart;
+    }
+
+    public void setJavaPart(boolean javaPart) {
+        this.javaPart = javaPart;
+    }
+
+    public boolean isAngularController() {
+        return angularController;
+    }
+
+    public void setAngularController(boolean angularController) {
+        this.angularController = angularController;
+    }
+
+    public boolean isSpringBootPart() {
+        return springBootPart;
+    }
+
+    public void setSpringBootPart(boolean springBootPart) {
+        this.springBootPart = springBootPart;
+    }
+
+    @JsonIgnore
+    public String getIdField(){
+        for(ObjectAttribute attr : getAttributes()){
+            for(ObjectAnnotation annot : attr.getAnnotations()){
+                if (annot.getName().equalsIgnoreCase("id")){
+                    return annot.getName();
+                }
+            }
+
+        }
+        return "UNKNOWN";
     }
 }

@@ -1,5 +1,7 @@
 package com.cgi.asset.objectModelorEntity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 /**
@@ -11,7 +13,13 @@ public class ObjectAttribute {
 
     String type;
 
-    boolean isList;
+    boolean listObject;
+
+    boolean tabView;
+
+    boolean previewView;
+
+    boolean editView;
 
     List<ObjectAnnotation> annotations;
 
@@ -31,12 +39,36 @@ public class ObjectAttribute {
         this.type = type;
     }
 
-    public boolean isList() {
-        return isList;
+    public boolean isListObject() {
+        return listObject;
     }
 
-    public void setList(boolean list) {
-        isList = list;
+    public void setListObject(boolean listObject) {
+        listObject = listObject;
+    }
+
+    public boolean isTabView() {
+        return tabView;
+    }
+
+    public void setTabView(boolean tabView) {
+        this.tabView = tabView;
+    }
+
+    public boolean isPreviewView() {
+        return previewView;
+    }
+
+    public void setPreviewView(boolean previewView) {
+        this.previewView = previewView;
+    }
+
+    public boolean isEditView() {
+        return editView;
+    }
+
+    public void setEditView(boolean editView) {
+        this.editView = editView;
     }
 
     public List<ObjectAnnotation> getAnnotations() {
@@ -45,5 +77,10 @@ public class ObjectAttribute {
 
     public void setAnnotations(List<ObjectAnnotation> annotations) {
         this.annotations = annotations;
+    }
+
+    @JsonIgnore
+    public String getUpperLetterName(){
+        return (name.substring(0,1)).toUpperCase()+name.substring(1);
     }
 }

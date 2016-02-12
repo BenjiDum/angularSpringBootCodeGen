@@ -17,9 +17,9 @@ import com.michelin.solutions.model.NewbizModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.cgi.asset.angular.AngularObjects;
-import com.cgi.asset.liquibase.LiquibaseObjects;
-import com.cgi.asset.springboot.SpringBootObjects;
+import com.cgi.asset.generationModel.AngularObjectsService;
+import com.cgi.asset.generationModel.LiquibaseObjects;
+import com.cgi.asset.generationModel.SpringBootObjects;
 
 import freemarker.template.Configuration;
 
@@ -42,7 +42,7 @@ public class AppGeneratorCore {
 		
 		for (Map<String, Object> objectDescriptor : generateObjectsDescriptor()){
 			if (prop.get("generateAngularPart").equals("true")){
-				AngularObjects.generateAngularFilesForObject(prop, cfg, objectDescriptor);   
+				//AngularObjectsService.generateAngularFilesForObject(prop, cfg, objectDescriptor);
 			}
 	        
 			if (prop.get("generateSpringPart").equals("true")){

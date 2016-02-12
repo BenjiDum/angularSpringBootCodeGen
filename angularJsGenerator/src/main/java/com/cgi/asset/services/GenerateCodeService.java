@@ -1,12 +1,12 @@
 package com.cgi.asset.services;
 
-import com.cgi.asset.angular.AngularObjects;
-import com.cgi.asset.builder.AppUtils;
-import com.cgi.asset.liquibase.LiquibaseObjects;
+import com.cgi.asset.domain.GeneratedEntity;
+import com.cgi.asset.generationModel.AngularObjectsService;
+import com.cgi.asset.generationModel.JpaObjectsGeneratorService;
 import com.cgi.asset.objectModelorEntity.ObjectDescriptor;
-import com.cgi.asset.springboot.SpringBootObjects;
-import freemarker.template.Configuration;
-import freemarker.template.Template;
+import com.cgi.asset.repository.GeneratedEntityService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +14,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+
 
 /**
  * Created by dumasbe on 27/01/2016.
@@ -42,6 +42,12 @@ public class GenerateCodeService {
     @Autowired
     private JpaObjectsGeneratorService jpaObjectsGeneratorService;
 
+    @Autowired
+    private AngularObjectsService angularObjectsService;
+
+    @Autowired
+    private GeneratedEntityService generatedEntityService;
+
     /*
     protected String composeHtml(Alert alert) throws IOException, TemplateException {
         return processTemplateIntoString(freemarkerConfiguration.getTemplate(TEMPLATE), ImmutableMap.of(
@@ -56,9 +62,41 @@ public class GenerateCodeService {
 
     private static final String EXPORT_FILE = "GENERATE_CODE_";
 
+    public void persistObjectInDatabase(ObjectDescriptor object) {
+        ObjectMapper mapper = new ObjectMapper();
+
+        // convert java object to JSON format,
+        // and returned as JSON formatted string
+        String json = null;
+        try {
+            json = mapper.writeValueAsString(object);
+
+            GeneratedEntity existing = generatedEntityService.findByNameIgnoringCase(object.getName());
+            if (existing != null){
+                existing.setJsonValue(json);
+
+
+                generatedEntityService.updateEntity(existing);
+            }else{
+                GeneratedEntity entityToPersist = new GeneratedEntity();
+                entityToPersist.setName(object.getName());
+                entityToPersist.setJsonValue(json);
+
+
+                generatedEntityService.saveEntity(entityToPersist);
+            }
+
+
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
     public File buildZipFromObject(ObjectDescriptor object){
 
-        byte[] buffer = new byte[1024];
+
         File masterFile = null;
 
         try {
@@ -66,14 +104,19 @@ public class GenerateCodeService {
             FileOutputStream fos = new FileOutputStream(masterFile);
             ZipOutputStream zos = new ZipOutputStream(fos);
 
-            List<File> result = new ArrayList<File>();
+
 
             //JpaObjects objectJpa = new JpaObjects();
 
            // freemarkerConfiguration.ge
 
-            if (generateAngular){
+            if (object.isAngularController()){
                 //AngularObjects.generateAngularFilesForObject(prop, cfg, objectDescriptor);
+                List<File> files = new ArrayList<File>();
+                files.addAll(angularObjectsService.generateAngularFilesForObject(object));
+                if (files.size()!=0){
+                    zos = buildZipPart(files, "ANGULAR", zos);
+                }
             }
 
             if (generateSpring){
@@ -86,23 +129,14 @@ public class GenerateCodeService {
 
             }
 
-            if (generateJPA){
-                result.addAll(jpaObjectsGeneratorService.generateJPAFilesForObject(object));
-            }
-
-
-            if (result.size()!=0){
-                for(File file : result){
-                    ZipEntry ze= new ZipEntry(file.getName());
-                    zos.putNextEntry(ze);
-                    FileInputStream in = new FileInputStream(file);
-                    int len;
-                    while ((len = in.read(buffer)) > 0) {
-                        zos.write(buffer, 0, len);
-                    }
-                    in.close();
-                    zos.closeEntry();
+            if (object.isJavaPart()){
+                List<File> jpaGeneratedFile = new ArrayList<File>();
+                jpaGeneratedFile.addAll(jpaObjectsGeneratorService.generateJPAFilesForObject(object));
+                if (jpaGeneratedFile.size()!=0){
+                    //
+                    zos = buildZipPart(jpaGeneratedFile, "JPA", zos);
                 }
+
             }
 
             zos.close();
@@ -115,12 +149,36 @@ public class GenerateCodeService {
         }catch (java.io.IOException ioe){
             logger.error("IOException");
             logger.error(ioe.getMessage());
-            //logger.error(ioe.printStackTrace());
         }
 
 
 
         return masterFile;
+    }
+
+    private ZipOutputStream buildZipPart(List<File> files, String folderName, ZipOutputStream zos) {
+        byte[] buffer = new byte[1024];
+        try {
+            for(File file : files){
+                ZipEntry ze= new ZipEntry(folderName+"\\"+file.getName());
+                zos.putNextEntry(ze);
+                FileInputStream in = new FileInputStream(file);
+                int len;
+                while ((len = in.read(buffer)) > 0) {
+                    zos.write(buffer, 0, len);
+                }
+                in.close();
+                zos.closeEntry();
+            }
+        }catch (java.io.FileNotFoundException fnf){
+            logger.error("File not found exception");
+            logger.error(fnf.getMessage());
+        }catch (java.io.IOException ioe){
+            logger.error("IOException");
+            logger.error(ioe.getMessage());
+            //logger.error(ioe.printStackTrace());
+        }
+        return zos;
     }
 
     private final static String STRING = "String";

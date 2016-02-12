@@ -1,4 +1,4 @@
-package com.cgi.asset.liquibase;
+package com.cgi.asset.generationModel;
 
 import java.io.File;
 import java.io.FileOutputStream;

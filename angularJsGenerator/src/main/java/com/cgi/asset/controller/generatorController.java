@@ -74,11 +74,12 @@ public class GeneratorController {
     public void generateZipFileForSelectedFile(@RequestBody ObjectDescriptor input, HttpServletResponse response) {
         logger.info("Zip generator controller");
 
+        generateCodeService.persistObjectInDatabase(input);
+
         try {
             File masterFile = generateCodeService.buildZipFromObject(input);
 
-
-            response.setContentType("text/csv;charset=" + StandardCharsets.UTF_16LE.name());
+            response.setContentType("text/csv;charset=" + StandardCharsets.UTF_8.name());
             response.setHeader("Content-Disposition", "attachment; filename="
                     + "fileFull.zip");
             //response.setContentLength(csv.length);

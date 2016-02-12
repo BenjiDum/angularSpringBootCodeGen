@@ -1,4 +1,4 @@
-package com.cgi.asset.dbReader;
+package com.cgi.asset.builder.dbReader;
 
 import java.util.ArrayList;
 import java.util.HashMap;

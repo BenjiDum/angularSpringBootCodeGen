@@ -5,8 +5,6 @@ import java.io.File;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.cgi.asset.springboot.SpringBootObjects;
-
 public class AppUtils {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AppUtils.class);

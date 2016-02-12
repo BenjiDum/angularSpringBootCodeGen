@@ -17,7 +17,7 @@ public class ${name}<#if audited> extends AuditableEntity</#if> {
 	<#list attributes as attribut>
     <#if attribut.annotations??>
     <#list attribut.annotations as annot>
-    @${annot.name}<#if annot.parameters??><#list annot.parameters as annotParam>(${annotParam.name} = ${annotParam.value})</#list></#if>
+        @${annot.name}
     </#list>
     </#if>
     <#if attribut.listObject>

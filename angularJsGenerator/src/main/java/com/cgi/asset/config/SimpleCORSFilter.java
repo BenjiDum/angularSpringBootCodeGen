@@ -1,4 +1,4 @@
-package com.cgi.asset.utils;
+package com.cgi.asset.config;
 
 import org.springframework.stereotype.Component;
 

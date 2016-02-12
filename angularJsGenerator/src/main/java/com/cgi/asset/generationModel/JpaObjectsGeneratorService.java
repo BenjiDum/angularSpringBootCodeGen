@@ -1,4 +1,4 @@
-package com.cgi.asset.services;
+package com.cgi.asset.generationModel;
 
 import com.cgi.asset.objectModelorEntity.ObjectDescriptor;
 import freemarker.template.Configuration;
@@ -19,14 +19,7 @@ public class JpaObjectsGeneratorService {
 	
 	private static final Logger logger = LoggerFactory.getLogger(JpaObjectsGeneratorService.class);
 
-	private static final String OBJECT_NAME = "objectName";
-	
-	private static final String ANGULAR_FOLDER = "angularCodeFolderGeneration";
-	
-
-    public static final String JPA_ENTITY_TEMPLATE = "object.javaJPA.domain.simple.ftl";
-
-    public static final String TEMPLATE_3 = "object.javaLight.domain.ftl";
+    public static final String JPA_ENTITY_TEMPLATE = "object.javaJPA.domain.ftl";
 
     @Autowired
     private Configuration freemarkerConfiguration;
@@ -34,6 +27,9 @@ public class JpaObjectsGeneratorService {
 
     public List<File> generateJPAFilesForObject(ObjectDescriptor object) throws IOException{
         List<File> jpaFileList = new ArrayList<File>();
+
+        File jpaFolder = new File("JPA");
+
 
         jpaFileList.add(generateEntityFile(object));
 
@@ -43,8 +39,9 @@ public class JpaObjectsGeneratorService {
 
 
     private File generateEntityFile(ObjectDescriptor object) throws IOException{
-        String fileName = "test.java";
+        String fileName = object.getName()+".java";
         File f = new File(fileName);
+
         try {
             Template temp = freemarkerConfiguration.getTemplate(JPA_ENTITY_TEMPLATE);
 
